@@ -1,0 +1,11 @@
+{
+  "domain": "uponor",
+  "name": "Uponor Smatrix",
+  "documentation": "https://github.com/pablo/uponor",
+  "issue_tracker": "https://github.com/pablo/uponor/issues",
+  "codeowners": ["@pablo"],
+  "version": "1.0.0",
+  "config_flow": true,
+  "iot_class": "local_polling",
+  "requirements": ["aiohttp>=3.9.0"]
+}
