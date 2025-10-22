@@ -1,0 +1,255 @@
+{
+  "info": {
+    "name": "Uponor API",
+    "description": "Colección de endpoints para controlar sistema Uponor Smatrix Pulse",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Lectura de datos",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener datos RAW completos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/raw",
+              "host": ["{{base_url}}"],
+              "path": ["api", "raw"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Listar todos los termostatos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/thermostats",
+              "host": ["{{base_url}}"],
+              "path": ["api", "thermostats"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener termostato específico (C1_T1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/thermostat/C1_T1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "thermostat", "C1_T1"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener estado del sistema",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/system",
+              "host": ["{{base_url}}"],
+              "path": ["api", "system"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Control de termostatos",
+      "item": [
+        {
+          "name": "Establecer temperatura (21.5°C)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temperature\": 21.5\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/thermostat/C1_T1/temperature",
+              "host": ["{{base_url}}"],
+              "path": ["api", "thermostat", "C1_T1", "temperature"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Establecer temperatura (23°C)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temperature\": 23\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/thermostat/C1_T1/temperature",
+              "host": ["{{base_url}}"],
+              "path": ["api", "thermostat", "C1_T1", "temperature"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Control del sistema",
+      "item": [
+        {
+          "name": "Cambiar a modo CALOR",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"heating\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/system/mode",
+              "host": ["{{base_url}}"],
+              "path": ["api", "system", "mode"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cambiar a modo FRÍO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mode\": \"cooling\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/system/mode",
+              "host": ["{{base_url}}"],
+              "path": ["api", "system", "mode"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Activar modo VACACIONES",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/system/away",
+              "host": ["{{base_url}}"],
+              "path": ["api", "system", "away"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Desactivar modo VACACIONES",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/system/away",
+              "host": ["{{base_url}}"],
+              "path": ["api", "system", "away"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Control avanzado (RAW)",
+      "item": [
+        {
+          "name": "Establecer variables RAW",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vars\": [\n    {\n      \"waspVarName\": \"C1_T1_setpoint\",\n      \"waspVarValue\": \"410\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/raw/set",
+              "host": ["{{base_url}}"],
+              "path": ["api", "raw", "set"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
